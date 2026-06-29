@@ -7,27 +7,21 @@
   <style>
     :root {
       --black: #050506;
-      --ink: #0b0a0d;
-      --panel: #111014;
-      --panel-soft: #17131a;
+      --ink: #0d0b10;
+      --panel: #141116;
       --line: rgba(255, 255, 255, .14);
       --text: #f6f0f6;
       --muted: #b9aeba;
       --silver: #eeeaf0;
       --paper: #f7f1e8;
       --violet: #7d3a9f;
-      --plum: #3a183c;
       --red: #c51636;
       --pink: #f2b6d1;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -52,14 +46,12 @@
       min-height: 100vh;
       overflow: hidden;
       background:
-        radial-gradient(circle at 78% 6%, rgba(125, 58, 159, .26), transparent 28%),
-        radial-gradient(circle at 8% 46%, rgba(197, 22, 54, .12), transparent 26%),
+        radial-gradient(circle at 82% 10%, rgba(125, 58, 159, .24), transparent 27%),
+        radial-gradient(circle at 8% 48%, rgba(197, 22, 54, .12), transparent 28%),
         var(--black);
     }
 
     .announce {
-      position: relative;
-      z-index: 30;
       height: 34px;
       display: flex;
       align-items: center;
@@ -69,7 +61,7 @@
       color: #09070a;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 2.2px;
+      letter-spacing: 2.1px;
       text-transform: uppercase;
       white-space: nowrap;
       overflow: hidden;
@@ -77,14 +69,14 @@
 
     .nav {
       position: sticky;
-      z-index: 30;
+      z-index: 20;
       top: 0;
       height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 clamp(18px, 5vw, 68px);
-      background: rgba(5, 5, 6, .78);
+      background: rgba(5, 5, 6, .82);
       border-bottom: 1px solid rgba(255, 255, 255, .12);
       backdrop-filter: blur(12px);
     }
@@ -103,7 +95,8 @@
       gap: 2px;
     }
 
-    .brand-laces span {
+    .brand-laces span,
+    .mood-mark {
       width: 24px;
       height: 4px;
       background: currentColor;
@@ -125,16 +118,11 @@
       letter-spacing: 2.4px;
     }
 
-    .nav-links a {
-      transition: color .2s ease;
-    }
+    .nav-links a:hover { color: var(--text); }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .pill {
-      min-height: 38px;
+    .pill,
+    .button {
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -149,17 +137,9 @@
 
     .button {
       min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       padding: 0 22px;
-      border: 1px solid rgba(255, 255, 255, .42);
       background: #f1edf4;
       color: #08070a;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
     }
 
     .button.ghost {
@@ -173,8 +153,7 @@
     }
 
     .muse-banner img {
-      width: 100%;
-      max-height: 56vh;
+      max-height: 50vh;
       object-fit: contain;
       background: var(--paper);
     }
@@ -196,7 +175,7 @@
       position: relative;
       display: grid;
       align-items: end;
-      padding: clamp(76px, 10vw, 132px) clamp(18px, 6vw, 84px) 54px;
+      padding: clamp(72px, 10vw, 132px) clamp(18px, 6vw, 84px) 54px;
       isolation: isolate;
     }
 
@@ -206,8 +185,8 @@
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(90deg, rgba(5,5,6,.95) 0%, rgba(5,5,6,.72) 35%, rgba(5,5,6,.18) 70%, rgba(5,5,6,.86) 100%),
-        url("rinko-assets/bundle-bath.jpg") center / cover;
+        linear-gradient(90deg, rgba(5,5,6,.95) 0%, rgba(5,5,6,.72) 35%, rgba(5,5,6,.22) 70%, rgba(5,5,6,.88) 100%),
+        url("rinko-assets/bundle-bath.png") center / cover;
       filter: saturate(.9) contrast(1.04);
     }
 
@@ -217,7 +196,7 @@
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(132deg, transparent 0 41%, rgba(125, 58, 159, .32) 41.2% 42.1%, transparent 42.3%),
+        linear-gradient(132deg, transparent 0 41%, rgba(125, 58, 159, .28) 41.2% 42.1%, transparent 42.3%),
         linear-gradient(164deg, transparent 0 66%, rgba(255, 255, 255, .18) 66.2% 66.5%, transparent 66.7%);
       mix-blend-mode: screen;
       pointer-events: none;
@@ -227,7 +206,7 @@
       width: min(100%, 1240px);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(300px, .9fr) minmax(280px, .58fr);
+      grid-template-columns: minmax(300px, .92fr) minmax(280px, .56fr);
       gap: clamp(28px, 5vw, 74px);
       align-items: end;
     }
@@ -251,6 +230,11 @@
     h1 {
       font-size: clamp(72px, 14vw, 176px);
       line-height: .82;
+    }
+
+    h2 {
+      font-size: clamp(42px, 8vw, 96px);
+      line-height: .92;
     }
 
     .hero-copy {
@@ -289,14 +273,14 @@
 
     .shop-strip {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
     }
 
     .strip-item {
-      min-height: 116px;
+      min-height: 112px;
       display: grid;
       align-content: center;
       gap: 8px;
@@ -304,9 +288,7 @@
       border-right: 1px solid var(--line);
     }
 
-    .strip-item:last-child {
-      border-right: 0;
-    }
+    .strip-item:last-child { border-right: 0; }
 
     .strip-item span {
       color: var(--muted);
@@ -334,7 +316,7 @@
       bottom: 0;
       left: 50%;
       width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(255,255,255,.18), transparent);
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.16), transparent);
       transform: skewX(-18deg);
       pointer-events: none;
     }
@@ -346,11 +328,6 @@
       grid-template-columns: minmax(260px, .74fr) minmax(260px, .55fr);
       gap: 32px;
       align-items: end;
-    }
-
-    h2 {
-      font-size: clamp(42px, 8vw, 96px);
-      line-height: .92;
     }
 
     .section-head p,
@@ -365,7 +342,7 @@
       width: min(100%, 1180px);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(260px, .44fr) minmax(420px, .86fr);
+      grid-template-columns: minmax(280px, .48fr) minmax(420px, .82fr);
       gap: clamp(20px, 4vw, 48px);
       align-items: center;
     }
@@ -462,9 +439,62 @@
       background: rgba(36, 21, 39, .78);
     }
 
-    .callout.one { top: 24%; right: 6%; }
-    .callout.two { top: 47%; right: 4%; }
-    .callout.three { bottom: 24%; right: 7%; }
+    .callout.one { top: 29%; right: 6%; }
+    .callout.two { bottom: 24%; right: 7%; }
+
+    .product-grid {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .tile {
+      display: grid;
+      grid-template-rows: 320px auto;
+      background: #f6f1eb;
+      color: #0b0a0d;
+      min-width: 0;
+    }
+
+    .tile img {
+      height: 320px;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .tile.product-only img {
+      object-fit: contain;
+      padding: 24px;
+    }
+
+    .tile-body {
+      display: grid;
+      gap: 8px;
+      padding: 20px;
+    }
+
+    .tile-body span {
+      color: #6d5b70;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .tile-body h3 {
+      font-size: 28px;
+    }
+
+    .tile-body p {
+      margin: 0;
+      color: #5d535e;
+      line-height: 1.5;
+      font-size: 14px;
+    }
 
     .collection-row {
       width: min(100%, 1240px);
@@ -477,7 +507,7 @@
     }
 
     .collection-card {
-      min-height: 330px;
+      min-height: 300px;
       position: relative;
       overflow: hidden;
       display: grid;
@@ -600,9 +630,7 @@
     }
 
     @media (max-width: 900px) {
-      .nav-links a:not(.pill) {
-        display: none;
-      }
+      .nav-links a:not(.pill) { display: none; }
 
       .muse-caption {
         justify-content: space-between;
@@ -625,6 +653,7 @@
       }
 
       .shop-strip,
+      .product-grid,
       .collection-row {
         grid-template-columns: 1fr;
       }
@@ -640,13 +669,9 @@
         min-height: 480px;
       }
 
-      .editorial-image {
-        clip-path: none;
-      }
+      .editorial-image { clip-path: none; }
 
-      .reserve-price {
-        justify-items: start;
-      }
+      .reserve-price { justify-items: start; }
     }
 
     @media (max-width: 560px) {
@@ -680,19 +705,19 @@
         </span>
       </a>
       <div class="nav-links">
+        <a href="#drop">Drop</a>
         <a href="#shop">Shop</a>
         <a href="#muses">Muses</a>
-        <a href="#lookbook">Lookbook</a>
         <a class="pill" href="#reserve">Presale</a>
       </div>
     </nav>
 
     <section class="muse-banner" aria-label="roxy vesper frill crosswalk">
-      <img src="rinko-assets/muses-crosswalk.jpg" alt="roxy, vesper, and frill walking right across a zebra crossing">
+      <img src="rinko-assets/muses-crosswalk.png" alt="roxy, vesper, and frill walking right across a zebra crossing">
       <div class="muse-caption">
-        <span>roxy / 170</span>
-        <span>vesper / 185</span>
-        <span>frill / 163</span>
+        <span>roxy</span>
+        <span>vesper</span>
+        <span>frill</span>
       </div>
     </section>
 
@@ -701,19 +726,18 @@
         <div>
           <p class="eyebrow">Gothic lingerie curated in LA</p>
           <h1>violet<br>after dark</h1>
-          <p class="hero-copy">A first rinko drop built like a small fashion capsule: imported finds, AI muse styling, and a darker product page for people who want the fantasy before the shipment window opens.</p>
+          <p class="hero-copy">A small presale drop for people who want the garment and the fantasy together: purple lace sleepwear, sheer thigh-highs, and styling references built around the rinko muse system.</p>
           <div class="cta-row" style="margin-top:26px">
-            <a class="button" href="#shop">Shop capsule</a>
-            <a class="button ghost" href="#muses">Meet muses</a>
+            <a class="button" href="#drop">View drop</a>
+            <a class="button ghost" href="#shop">Shop pieces</a>
           </div>
         </div>
         <aside class="hero-card">
-          <strong>Presale mode</strong>
-          <p>One violet bundle, three pieces, and three character-led doors for future drops. The page is designed to feel like a boutique first, then a product page.</p>
+          <strong>Two-piece bundle</strong>
+          <p>The white choker is no longer part of the violet set. It stays as a separate accessory reference while the main bundle focuses on the slip and stockings.</p>
           <div class="cta-row">
-            <a class="pill tone-roxy" href="#group-roxy">roxy</a>
-            <a class="pill tone-vesper" href="#group-vesper">vesper</a>
-            <a class="pill tone-frill" href="#group-frill">frill</a>
+            <a class="pill tone-vesper" href="#drop">vesper styled</a>
+            <a class="pill" href="#reserve">pre-order</a>
           </div>
         </aside>
       </div>
@@ -728,26 +752,30 @@
         <span>stockings</span>
         <strong>$20</strong>
       </a>
-      <a class="strip-item" href="product-choker.html">
-        <span>choker</span>
-        <strong>$11</strong>
-      </a>
       <a class="strip-item" href="#reserve">
         <span>bundle</span>
-        <strong>reserve</strong>
+        <strong>$48</strong>
+      </a>
+      <a class="strip-item" href="product-choker.html">
+        <span>accessory</span>
+        <strong>$11</strong>
+      </a>
+      <a class="strip-item" href="product-frill-black.html">
+        <span>frill drop</span>
+        <strong>preorder</strong>
       </a>
     </section>
 
-    <section id="shop" class="section">
+    <section id="drop" class="section">
       <div class="section-head">
-        <h2>The first<br>capsule.</h2>
-        <p>Three pieces are placed beside the full-body vesper styling board, so the customer can read the item first and then see how the fantasy is supposed to feel.</p>
+        <h2>Styled as<br>a look.</h2>
+        <p>The drop should read like a clothing product page first: clear pieces, clear price, then a mood image. The character is styling direction, not the whole story.</p>
       </div>
 
       <div class="drop-grid">
         <aside class="product-stack" aria-label="Capsule products">
           <article class="product-card">
-            <img src="rinko-assets/flat-slip.jpg" alt="Purple lace sleepwear flat product image">
+            <img src="rinko-assets/flat-slip.png" alt="Purple lace sleepwear flat product image">
             <div>
               <h3>Violet Lace Slip</h3>
               <span class="price">$28</span>
@@ -756,7 +784,7 @@
             </div>
           </article>
           <article class="product-card">
-            <img src="rinko-assets/flat-stockings.jpg" alt="Black purple lace stockings flat product image">
+            <img src="rinko-assets/flat-stockings.png" alt="Black purple lace stockings flat product image">
             <div>
               <h3>Lace Thigh-Highs</h3>
               <span class="price">$20</span>
@@ -764,43 +792,75 @@
               <a href="product-stockings.html">View product</a>
             </div>
           </article>
-          <article class="product-card">
-            <img src="rinko-assets/flat-choker.jpg" alt="White lace pearl choker flat product image">
-            <div>
-              <h3>Pearl Lace Choker</h3>
-              <span class="price">$11</span>
-              <p>One-size white lace choker with pearl drop detail.</p>
-              <a href="product-choker.html">View product</a>
-            </div>
-          </article>
         </aside>
 
         <article class="studio-board" aria-label="White background model styling image with callouts">
-          <img src="rinko-assets/bundle-studio.jpg" alt="vesper wearing the violet lace bundle in front and back view">
+          <img src="rinko-assets/bundle-studio.png" alt="vesper wearing the violet lace look in front and back view">
           <div class="callout one">01 lace slip</div>
-          <div class="callout two">02 pearl choker</div>
-          <div class="callout three">03 lace stockings</div>
+          <div class="callout two">02 lace stockings</div>
         </article>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-head">
+        <h2>Shop<br>the pieces.</h2>
+        <p>Each product keeps its own detail page. The choker remains available as an accessory, and frill now has the next black mesh styling drop in progress.</p>
+      </div>
+
+      <div class="product-grid">
+        <a class="tile product-only" href="product-slip.html">
+          <img src="rinko-assets/flat-slip.png" alt="Violet lace slip">
+          <div class="tile-body">
+            <span>sleepwear / $28</span>
+            <h3>Violet Lace Slip</h3>
+            <p>Transparent lace mesh with purple bow and adjustable straps.</p>
+          </div>
+        </a>
+        <a class="tile product-only" href="product-stockings.html">
+          <img src="rinko-assets/flat-stockings.png" alt="Lace thigh-high stockings">
+          <div class="tile-body">
+            <span>stockings / $20</span>
+            <h3>Lace Thigh-Highs</h3>
+            <p>Sheer floral lace top, one-size styling accessory.</p>
+          </div>
+        </a>
+        <a class="tile product-only" href="product-choker.html">
+          <img src="rinko-assets/flat-choker.png" alt="Pearl lace choker">
+          <div class="tile-body">
+            <span>accessory / $11</span>
+            <h3>Pearl Lace Choker</h3>
+            <p>Separate accessory reference, not included in the violet set.</p>
+          </div>
+        </a>
+        <a class="tile" href="product-frill-black.html">
+          <img src="rinko-assets/frill-black-fullbody.png" alt="Frill black mesh styling reference">
+          <div class="tile-body">
+            <span>frill / preorder</span>
+            <h3>Black Mesh Strap Set</h3>
+            <p>Black strap inner layer with a light tulle cover-up and fishnet styling.</p>
+          </div>
+        </a>
       </div>
     </section>
 
     <section id="muses" class="section">
       <div class="section-head">
         <h2>Three doors.<br>Three moods.</h2>
-        <p>Each muse becomes a future shopping lane. Roxy is harder and punk, vesper is long and cold, frill is pink lace and ribbon sweetness.</p>
+        <p>Roxy, vesper, and frill become shopping lanes for future drops. The current capsule belongs to the violet lane.</p>
       </div>
 
       <div class="collection-row">
         <a id="group-roxy" class="collection-card tone-roxy" href="#shop">
-          <span>roxy / 170 / black red hardware</span>
+          <span>black red hardware</span>
           <h3>roxy</h3>
         </a>
-        <a id="group-vesper" class="collection-card tone-vesper" href="#shop">
-          <span>vesper / 185 / violet lace signal</span>
+        <a id="group-vesper" class="collection-card tone-vesper" href="#drop">
+          <span>violet lace signal</span>
           <h3>vesper</h3>
         </a>
-        <a id="group-frill" class="collection-card tone-frill" href="#shop">
-          <span>frill / 163 / ribbon sweetness</span>
+        <a id="group-frill" class="collection-card tone-frill" href="product-frill-black.html">
+          <span>ribbon sweetness</span>
           <h3>frill</h3>
         </a>
       </div>
@@ -809,15 +869,15 @@
     <section id="lookbook" class="section">
       <div class="editorial">
         <div class="editorial-image">
-          <img src="rinko-assets/bundle-bath.jpg" alt="violet after dark editorial styling image">
+          <img src="rinko-assets/bundle-bath.png" alt="violet after dark editorial styling image">
         </div>
         <div class="editorial-copy">
           <p class="eyebrow">lookbook language</p>
           <h2>Soft lace.<br>Cold metal.</h2>
-          <p>Rinko should feel like a small independent label, not a resale list. Each item gets three layers: product photo, item-only reference, and muse styling image.</p>
-          <p>Future product drops can be assigned to roxy, vesper, or frill, then built into the same structure: physical item, AI styling model, and product page.</p>
+          <p>Rinko should feel like an independent apparel store, not a folder of sample photos. The homepage leads with a drop, then lets the product pages carry the practical details.</p>
+          <p>Future items can follow the same pattern: item-only image, model reference, product page, and a muse lane that makes the styling easier to remember.</p>
           <div class="cta-row">
-            <a class="button" href="#shop">Return to shop</a>
+            <a class="button" href="#drop">Return to drop</a>
             <a class="button ghost" href="#reserve">Reserve capsule</a>
           </div>
         </div>
@@ -826,10 +886,10 @@
 
     <section id="reserve" class="section">
       <div class="reserve-panel">
-        <p>Presale mode: final sizing, availability, and delivery timing are confirmed before shipment. AI muse imagery is used as styling reference; actual item details follow the product photos.</p>
+        <p>Presale mode: final sizing, availability, and delivery timing are confirmed before shipment. AI muse imagery is styling reference; actual item details follow the product photos.</p>
         <div class="reserve-price">
-          <span>capsule reservation</span>
-          <strong>$59</strong>
+          <span>violet two-piece bundle</span>
+          <strong>$48</strong>
           <a class="button" href="mailto:hello@rinko.la?subject=rinko%20violet%20bundle%20presale">Request slot</a>
         </div>
       </div>
