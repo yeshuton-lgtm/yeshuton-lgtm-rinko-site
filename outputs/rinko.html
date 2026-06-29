@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rinko | gothic lingerie presale</title>
+  <style>
+    :root {
+      --black: #050506;
+      --ink: #0b0a0d;
+      --panel: #111014;
+      --panel-soft: #17131a;
+      --line: rgba(255, 255, 255, .14);
+      --text: #f6f0f6;
+      --muted: #b9aeba;
+      --silver: #eeeaf0;
+      --paper: #f7f1e8;
+      --violet: #7d3a9f;
+      --plum: #3a183c;
+      --red: #c51636;
+      --pink: #f2b6d1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--text);
+      font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 6%, rgba(125, 58, 159, .26), transparent 28%),
+        radial-gradient(circle at 8% 46%, rgba(197, 22, 54, .12), transparent 26%),
+        var(--black);
+    }
+
+    .announce {
+      position: relative;
+      z-index: 30;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      background: #f2edf3;
+      color: #09070a;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: sticky;
+      z-index: 30;
+      top: 0;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(18px, 5vw, 68px);
+      background: rgba(5, 5, 6, .78);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: grid;
+      gap: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .brand-laces {
+      display: grid;
+      grid-template-columns: repeat(3, 28px);
+      gap: 2px;
+    }
+
+    .brand-laces span {
+      width: 24px;
+      height: 4px;
+      background: currentColor;
+      transform: skewX(-28deg) rotate(-18deg);
+      opacity: .9;
+    }
+
+    .tone-roxy { color: var(--red); }
+    .tone-vesper { color: var(--violet); }
+    .tone-frill { color: var(--pink); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 3vw, 34px);
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .pill {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(231, 226, 235, .42);
+      padding: 0 16px;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      background: #f1edf4;
+      color: #08070a;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    .button.ghost {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .muse-banner {
+      background: var(--paper);
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .muse-banner img {
+      width: 100%;
+      max-height: 56vh;
+      object-fit: contain;
+      background: var(--paper);
+    }
+
+    .muse-caption {
+      display: flex;
+      justify-content: center;
+      gap: clamp(22px, 8vw, 122px);
+      padding: 12px 18px 18px;
+      color: #19131a;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: calc(100vh - 106px);
+      position: relative;
+      display: grid;
+      align-items: end;
+      padding: clamp(76px, 10vw, 132px) clamp(18px, 6vw, 84px) 54px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(5,5,6,.95) 0%, rgba(5,5,6,.72) 35%, rgba(5,5,6,.18) 70%, rgba(5,5,6,.86) 100%),
+        url("rinko-assets/bundle-bath.jpg") center / cover;
+      filter: saturate(.9) contrast(1.04);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(132deg, transparent 0 41%, rgba(125, 58, 159, .32) 41.2% 42.1%, transparent 42.3%),
+        linear-gradient(164deg, transparent 0 66%, rgba(255, 255, 255, .18) 66.2% 66.5%, transparent 66.7%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      width: min(100%, 1240px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(300px, .9fr) minmax(280px, .58fr);
+      gap: clamp(28px, 5vw, 74px);
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--silver);
+      font-size: 12px;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(72px, 14vw, 176px);
+      line-height: .82;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      margin: 26px 0 0;
+      color: #d9ced8;
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.7;
+    }
+
+    .hero-card {
+      border-left: 1px solid rgba(255, 255, 255, .25);
+      padding: 28px 0 8px 28px;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .hero-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .shop-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .strip-item {
+      min-height: 116px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      padding: 24px clamp(18px, 4vw, 38px);
+      border-right: 1px solid var(--line);
+    }
+
+    .strip-item:last-child {
+      border-right: 0;
+    }
+
+    .strip-item span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+    }
+
+    .strip-item strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 500;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(72px, 11vw, 132px) clamp(18px, 6vw, 84px);
+      border-top: 1px solid var(--line);
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+    }
+
+    .section-head {
+      width: min(100%, 1180px);
+      margin: 0 auto 36px;
+      display: grid;
+      grid-template-columns: minmax(260px, .74fr) minmax(260px, .55fr);
+      gap: 32px;
+      align-items: end;
+    }
+
+    h2 {
+      font-size: clamp(42px, 8vw, 96px);
+      line-height: .92;
+    }
+
+    .section-head p,
+    .body-copy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .drop-grid {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, .44fr) minmax(420px, .86fr);
+      gap: clamp(20px, 4vw, 48px);
+      align-items: center;
+    }
+
+    .product-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 16px;
+      align-items: center;
+      min-height: 132px;
+      background: #f6f1eb;
+      color: #0b0a0d;
+      border: 1px solid rgba(255,255,255,.34);
+      overflow: hidden;
+    }
+
+    .product-card img {
+      width: 112px;
+      height: 132px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .product-card h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .product-card p {
+      margin: 0 0 10px;
+      color: #5d535e;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .product-card a {
+      color: #0b0a0d;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--violet);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .studio-board {
+      position: relative;
+      min-height: 620px;
+      background: var(--paper);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      box-shadow: 0 28px 80px rgba(0,0,0,.35);
+    }
+
+    .studio-board img {
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      padding: 20px;
+    }
+
+    .callout {
+      position: absolute;
+      display: grid;
+      grid-template-columns: 76px auto;
+      align-items: center;
+      gap: 12px;
+      color: #241527;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255,255,255,.72);
+      pointer-events: none;
+      background: rgba(247, 241, 232, .78);
+      padding: 8px 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    .callout::before {
+      content: "";
+      height: 1px;
+      background: rgba(36, 21, 39, .78);
+    }
+
+    .callout.one { top: 24%; right: 6%; }
+    .callout.two { top: 47%; right: 4%; }
+    .callout.three { bottom: 24%; right: 7%; }
+
+    .collection-row {
+      width: min(100%, 1240px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .collection-card {
+      min-height: 330px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 28px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        #0a090c;
+    }
+
+    .collection-card::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 28px;
+      width: 120px;
+      height: 12px;
+      background: currentColor;
+      transform: skewX(-28deg);
+      opacity: .9;
+      box-shadow:
+        28px 0 0 currentColor,
+        56px 0 0 currentColor;
+    }
+
+    .collection-card span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .collection-card h3 {
+      margin-top: 8px;
+      font-size: 44px;
+    }
+
+    .editorial {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(280px, .85fr) minmax(280px, .65fr);
+      gap: clamp(30px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .editorial-image {
+      min-height: 620px;
+      overflow: hidden;
+      background: #0a090c;
+      border: 1px solid rgba(255,255,255,.14);
+      clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%);
+    }
+
+    .editorial-image img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .editorial-copy {
+      display: grid;
+      gap: 20px;
+    }
+
+    .editorial-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .reserve-panel {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 26px;
+      align-items: center;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    .reserve-panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .reserve-price {
+      display: grid;
+      gap: 8px;
+      justify-items: end;
+    }
+
+    .reserve-price span {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .reserve-price strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+    }
+
+    .footer {
+      padding: 44px clamp(18px, 6vw, 84px);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.pill) {
+        display: none;
+      }
+
+      .muse-caption {
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 10px;
+      }
+
+      .hero-grid,
+      .section-head,
+      .drop-grid,
+      .editorial,
+      .reserve-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,.25);
+        padding: 24px 0 0;
+      }
+
+      .shop-strip,
+      .collection-row {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .studio-board,
+      .collection-card,
+      .editorial-image {
+        min-height: 480px;
+      }
+
+      .editorial-image {
+        clip-path: none;
+      }
+
+      .reserve-price {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .product-card {
+        grid-template-columns: 96px 1fr;
+      }
+
+      .product-card img {
+        width: 96px;
+      }
+
+      .callout {
+        grid-template-columns: 44px auto;
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="announce">presale capsule 001 / domestic finds transferred to LA / styling images are AI references</div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <span>rinko</span>
+        <span class="brand-laces" aria-label="Style groups">
+          <span class="tone-roxy"></span>
+          <span class="tone-vesper"></span>
+          <span class="tone-frill"></span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#muses">Muses</a>
+        <a href="#lookbook">Lookbook</a>
+        <a class="pill" href="#reserve">Presale</a>
+      </div>
+    </nav>
+
+    <section class="muse-banner" aria-label="roxy vesper frill crosswalk">
+      <img src="rinko-assets/muses-crosswalk.jpg" alt="roxy, vesper, and frill walking right across a zebra crossing">
+      <div class="muse-caption">
+        <span>roxy / 170</span>
+        <span>vesper / 185</span>
+        <span>frill / 163</span>
+      </div>
+    </section>
+
+    <header id="top" class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Gothic lingerie curated in LA</p>
+          <h1>violet<br>after dark</h1>
+          <p class="hero-copy">A first rinko drop built like a small fashion capsule: imported finds, AI muse styling, and a darker product page for people who want the fantasy before the shipment window opens.</p>
+          <div class="cta-row" style="margin-top:26px">
+            <a class="button" href="#shop">Shop capsule</a>
+            <a class="button ghost" href="#muses">Meet muses</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <strong>Presale mode</strong>
+          <p>One violet bundle, three pieces, and three character-led doors for future drops. The page is designed to feel like a boutique first, then a product page.</p>
+          <div class="cta-row">
+            <a class="pill tone-roxy" href="#group-roxy">roxy</a>
+            <a class="pill tone-vesper" href="#group-vesper">vesper</a>
+            <a class="pill tone-frill" href="#group-frill">frill</a>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="shop-strip" aria-label="Store highlights">
+      <a class="strip-item" href="product-slip.html">
+        <span>sleepwear</span>
+        <strong>$28</strong>
+      </a>
+      <a class="strip-item" href="product-stockings.html">
+        <span>stockings</span>
+        <strong>$20</strong>
+      </a>
+      <a class="strip-item" href="product-choker.html">
+        <span>choker</span>
+        <strong>$11</strong>
+      </a>
+      <a class="strip-item" href="#reserve">
+        <span>bundle</span>
+        <strong>reserve</strong>
+      </a>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-head">
+        <h2>The first<br>capsule.</h2>
+        <p>Three pieces are placed beside the full-body vesper styling board, so the customer can read the item first and then see how the fantasy is supposed to feel.</p>
+      </div>
+
+      <div class="drop-grid">
+        <aside class="product-stack" aria-label="Capsule products">
+          <article class="product-card">
+            <img src="rinko-assets/flat-slip.jpg" alt="Purple lace sleepwear flat product image">
+            <div>
+              <h3>Violet Lace Slip</h3>
+              <span class="price">$28</span>
+              <p>Purple lace mesh sleepwear, adjustable straps, bow accents.</p>
+              <a href="product-slip.html">View product</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="rinko-assets/flat-stockings.jpg" alt="Black purple lace stockings flat product image">
+            <div>
+              <h3>Lace Thigh-Highs</h3>
+              <span class="price">$20</span>
+              <p>One-size sheer lace stockings with floral wide top.</p>
+              <a href="product-stockings.html">View product</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="rinko-assets/flat-choker.jpg" alt="White lace pearl choker flat product image">
+            <div>
+              <h3>Pearl Lace Choker</h3>
+              <span class="price">$11</span>
+              <p>One-size white lace choker with pearl drop detail.</p>
+              <a href="product-choker.html">View product</a>
+            </div>
+          </article>
+        </aside>
+
+        <article class="studio-board" aria-label="White background model styling image with callouts">
+          <img src="rinko-assets/bundle-studio.jpg" alt="vesper wearing the violet lace bundle in front and back view">
+          <div class="callout one">01 lace slip</div>
+          <div class="callout two">02 pearl choker</div>
+          <div class="callout three">03 lace stockings</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="muses" class="section">
+      <div class="section-head">
+        <h2>Three doors.<br>Three moods.</h2>
+        <p>Each muse becomes a future shopping lane. Roxy is harder and punk, vesper is long and cold, frill is pink lace and ribbon sweetness.</p>
+      </div>
+
+      <div class="collection-row">
+        <a id="group-roxy" class="collection-card tone-roxy" href="#shop">
+          <span>roxy / 170 / black red hardware</span>
+          <h3>roxy</h3>
+        </a>
+        <a id="group-vesper" class="collection-card tone-vesper" href="#shop">
+          <span>vesper / 185 / violet lace signal</span>
+          <h3>vesper</h3>
+        </a>
+        <a id="group-frill" class="collection-card tone-frill" href="#shop">
+          <span>frill / 163 / ribbon sweetness</span>
+          <h3>frill</h3>
+        </a>
+      </div>
+    </section>
+
+    <section id="lookbook" class="section">
+      <div class="editorial">
+        <div class="editorial-image">
+          <img src="rinko-assets/bundle-bath.jpg" alt="violet after dark editorial styling image">
+        </div>
+        <div class="editorial-copy">
+          <p class="eyebrow">lookbook language</p>
+          <h2>Soft lace.<br>Cold metal.</h2>
+          <p>Rinko should feel like a small independent label, not a resale list. Each item gets three layers: product photo, item-only reference, and muse styling image.</p>
+          <p>Future product drops can be assigned to roxy, vesper, or frill, then built into the same structure: physical item, AI styling model, and product page.</p>
+          <div class="cta-row">
+            <a class="button" href="#shop">Return to shop</a>
+            <a class="button ghost" href="#reserve">Reserve capsule</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserve" class="section">
+      <div class="reserve-panel">
+        <p>Presale mode: final sizing, availability, and delivery timing are confirmed before shipment. AI muse imagery is used as styling reference; actual item details follow the product photos.</p>
+        <div class="reserve-price">
+          <span>capsule reservation</span>
+          <strong>$59</strong>
+          <a class="button" href="mailto:hello@rinko.la?subject=rinko%20violet%20bundle%20presale">Request slot</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>rinko / capsule 001</span>
+      <span>adult styling reference / LA</span>
+    </footer>
+  </div>
+</body>
+</html>

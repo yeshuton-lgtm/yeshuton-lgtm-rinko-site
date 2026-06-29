@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: rinko
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: outputs
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
