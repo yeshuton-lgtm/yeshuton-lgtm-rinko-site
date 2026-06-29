@@ -347,29 +347,17 @@
 
     .product-card {
       display: grid;
-      grid-template-rows: 320px auto;
+      min-height: 220px;
       background: #f6f1eb;
       color: #0b0a0d;
       min-width: 0;
     }
 
-    .product-card img {
-      height: 320px;
-      object-fit: contain;
-      background: #fff;
-      padding: 24px;
-    }
-
-    .product-card.editorial img {
-      object-fit: cover;
-      padding: 0;
-      background: #0a090c;
-    }
-
     .product-body {
       display: grid;
       gap: 8px;
-      padding: 18px;
+      align-content: end;
+      padding: 22px;
     }
 
     .product-body span {
@@ -499,15 +487,15 @@
       <nav class="side-nav">
         <a class="tone-roxy" href="#muses">
           <span class="nav-slash"></span>
-          <span>roxy<small>black red hardware</small></span>
+          <span>roxy<small>category</small></span>
         </a>
         <a class="tone-vesper" href="#vesper">
           <span class="nav-slash"></span>
-          <span>vesper<small>violet lace signal</small></span>
+          <span>vesper<small>category</small></span>
         </a>
         <a class="tone-frill" href="#frill">
           <span class="nav-slash"></span>
-          <span>frill<small>ribbon sweetness</small></span>
+          <span>frill<small>category</small></span>
         </a>
       </nav>
 
@@ -527,7 +515,7 @@
         <div class="intro-copy">
           <p class="eyebrow">gothic intimate apparel / character-led styling</p>
           <h1>rinko<br>capsule</h1>
-          <p>Independent apparel energy, darker lingerie styling, and muse-led product drops. The artwork sets the world first; the product pages carry the details.</p>
+          <p>Independent apparel energy, darker styling, and muse-led drops. The homepage is the world; each product page carries the actual item details.</p>
         </div>
 
         <div class="crosswalk">
@@ -537,15 +525,15 @@
         <div class="art-grid">
           <article class="art-tile">
             <img src="rinko-assets/bundle-bath.png" alt="vesper violet editorial styling image">
-            <div class="caption"><span>vesper</span><span>violet after dark</span></div>
+            <div class="caption"><span>vesper</span><span>art direction</span></div>
           </article>
           <article class="art-tile contain">
             <img src="rinko-assets/bundle-studio.png" alt="vesper violet styling board">
-            <div class="caption"><span>styling board</span><span>violet set</span></div>
+            <div class="caption"><span>styling board</span><span>vesper lane</span></div>
           </article>
           <article class="art-tile">
             <img src="rinko-assets/frill-black-editorial.png" alt="frill black set editorial styling image">
-            <div class="caption"><span>frill</span><span>black mesh set</span></div>
+            <div class="caption"><span>frill</span><span>art direction</span></div>
           </article>
           <article class="art-tile contain">
             <img src="rinko-assets/frill-black-fullbody.png" alt="frill black set full-body styling board">
@@ -557,14 +545,14 @@
       <section id="vesper" class="section">
         <div class="section-head">
           <h2>Vesper<br>violet set.</h2>
-          <p>The violet set is its own drop: purple lace sleepwear with lace thigh-highs. Choker stays separate as an accessory, not part of this set.</p>
+          <p>A standalone drop in the vesper lane. Open the item page for all details.</p>
         </div>
         <div class="drop-row">
           <article class="drop-info">
             <div class="slash tone-vesper"></div>
             <h3>Violet Lace Set</h3>
-            <p>Sleepwear $28 + stockings $20. Styled by vesper for the first rinko presale capsule.</p>
-            <a class="button" href="product-slip.html">view sleepwear</a>
+            <p>Homepage preview only. Full details live on the item page.</p>
+            <a class="button" href="product-slip.html">view set</a>
           </article>
           <article class="drop-media">
             <img src="rinko-assets/bundle-studio.png" alt="vesper wearing the violet lace set in front and back view">
@@ -575,17 +563,17 @@
       <section id="frill" class="section">
         <div class="section-head">
           <h2>Frill<br>black set.</h2>
-          <p>Frill's black set is separate from the violet lane: black strap structure, light mesh cover layer, and fishnet styling.</p>
+          <p>A standalone drop in the frill lane. Open the item page for all details.</p>
         </div>
         <div class="drop-row">
           <article class="drop-info">
             <div class="slash tone-frill"></div>
-            <h3>Black Mesh Strap Set</h3>
-            <p>Preorder item. The current image is a styling reference; final product detail follows the real item listing.</p>
+            <h3>Frill Black Set</h3>
+            <p>Homepage preview only. Full details live on the item page.</p>
             <a class="button" href="product-frill-black.html">view product</a>
           </article>
           <article class="drop-media">
-            <img src="rinko-assets/frill-black-fullbody.png" alt="frill wearing the black mesh strap set in front and back view">
+            <img src="rinko-assets/frill-black-fullbody.png" alt="frill styling board">
           </article>
         </div>
       </section>
@@ -593,39 +581,35 @@
       <section id="pieces" class="section">
         <div class="section-head">
           <h2>Pieces.</h2>
-          <p>Individual items stay in a simple grid, like a shop category page. Full styled sets live above as their own drops.</p>
+          <p>This page only lists entry points. Open an item page to see the full listing.</p>
         </div>
         <div class="product-grid">
           <a class="product-card" href="product-slip.html">
-            <img src="rinko-assets/flat-slip.png" alt="Violet lace slip">
             <div class="product-body">
-              <span>sleepwear / $28</span>
+              <span>vesper lane</span>
               <h3>Violet Lace Slip</h3>
-              <p>Purple lace mesh with bow detail and adjustable straps.</p>
+              <p>View item page</p>
             </div>
           </a>
           <a class="product-card" href="product-stockings.html">
-            <img src="rinko-assets/flat-stockings.png" alt="Lace thigh-high stockings">
             <div class="product-body">
-              <span>stockings / $20</span>
+              <span>vesper lane</span>
               <h3>Lace Thigh-Highs</h3>
-              <p>Sheer floral lace top, one-size styling accessory.</p>
+              <p>View item page</p>
             </div>
           </a>
           <a class="product-card" href="product-choker.html">
-            <img src="rinko-assets/flat-choker.png" alt="Pearl lace choker">
             <div class="product-body">
-              <span>accessory / $11</span>
+              <span>rinko item</span>
               <h3>Pearl Lace Choker</h3>
-              <p>Separate accessory reference, not included in violet set.</p>
+              <p>View item page</p>
             </div>
           </a>
-          <a class="product-card editorial" href="product-frill-black.html">
-            <img src="rinko-assets/frill-black-editorial.png" alt="Frill black mesh set editorial image">
+          <a class="product-card" href="product-frill-black.html">
             <div class="product-body">
-              <span>frill / preorder</span>
-              <h3>Black Mesh Strap Set</h3>
-              <p>Standalone black set in the frill lane.</p>
+              <span>frill lane</span>
+              <h3>Frill Black Set</h3>
+              <p>View item page</p>
             </div>
           </a>
         </div>
@@ -634,19 +618,19 @@
       <section id="muses" class="section">
         <div class="section-head">
           <h2>Muse<br>lanes.</h2>
-          <p>The IP characters are shopping directions, not size labels: roxy is harder black/red, vesper is violet and cold, frill is sweet gothic.</p>
+          <p>The IP characters are shopping directions. Full listings stay inside item pages.</p>
         </div>
         <div class="muse-grid">
           <a class="muse-card tone-roxy" href="#pieces">
-            <span>black red hardware</span>
+            <span>category</span>
             <h3>roxy</h3>
           </a>
           <a class="muse-card tone-vesper" href="#vesper">
-            <span>violet lace signal</span>
+            <span>category</span>
             <h3>vesper</h3>
           </a>
           <a class="muse-card tone-frill" href="#frill">
-            <span>ribbon sweetness</span>
+            <span>category</span>
             <h3>frill</h3>
           </a>
         </div>
